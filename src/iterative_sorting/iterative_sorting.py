@@ -27,26 +27,35 @@ def selection_sort( arr ):
 
 
 # TO-DO:  implement the Bubble Sort function below
+
+# Solution with recursion
+
 # def bubble_sort( arr ):
-#     for i in range(0, len(arr) - 1):
+#     swapped = False
+#     for i in range(0, len(arr) - 1):       
 #         if arr[i] > arr[i+1]:
+#             swapped = True
 #             temp = arr[i]
 #             arr[i] = arr[i+1]
 #             arr[i+1] = temp
-#             return bubble_sort(arr)
-#     return arr
-def bubble_sort( arr ):
-    swapped = False
-    for i in range(0, len(arr) - 1):       
-        if arr[i] > arr[i+1]:
-            swapped = True
-            temp = arr[i]
-            arr[i] = arr[i+1]
-            arr[i+1] = temp
-    if swapped == True:
-        return bubble_sort(arr)
-    else:
-        return arr
+#     if swapped == True:
+#         return bubble_sort(arr)
+#     else:
+#         return arr
+
+# Iterative solution using a while loop
+
+def bubble_sort(arr):
+    swapped = True
+    while swapped:
+        swapped = False
+        for i in range(0, len(arr)-1):
+            if arr[i] > arr[i+1]:
+                temp = arr[i]
+                arr[i] = arr[i + 1]
+                arr[i + 1] = temp
+                swapped = True
+    return arr
 
 
 # STRETCH: implement the Count Sort function below
