@@ -8,19 +8,19 @@ def merge( arrA, arrB ):
     ## python to defaultly assign space for the data
     a = 0
     b = 0
-    for i in range(num_elements):
-        if arrA[a] < arrB[b]:
-            merged_arr[i] = arrA[a]
-            a += 1
-        elif arrA[a] >= arrB[b]:
+    for i in range(0, num_elements):
+        if a >= len(arrA):    # all elements in arrA have been merged
             merged_arr[i] = arrB[b]
             b += 1
-        elif a >= len(arrA):
-            merged_arr[i] = arrB[b]
-            b += 1
-        else:
+        elif b >= len(arrB):  # all elements in arrB have been merged
             merged_arr[i] = arrA[a]
             a += 1
+        elif arrA[a] < arrB[b]:  # next element in arrA smaller, so add to final array
+            merged_arr[i] = arrA[a]
+            a += 1
+        else:  # else, next element in arrB must be smaller, so add it to final array
+            merged_arr[i] = arrB[b]
+            b += 1
     return merged_arr
 
 
